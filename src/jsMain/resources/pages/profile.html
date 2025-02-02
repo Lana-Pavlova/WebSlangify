@@ -6,7 +6,7 @@
     <title>Личный кабинет</title>
     <link rel="stylesheet" href="../css/styles.css">
 </head>
-<body>
+<body class="profile-page">
 <header class="top-bar">
     <a href="../pages/index.html"><h1>Главная</h1></a>
 </header>
@@ -42,34 +42,43 @@
     </div>
 
     <!-- Контейнер для отображения профиля -->
-    <div class="profile-info"  style="display:none">
-        <div class="profile-details">
-            <img id="profile-picture" src="../../../drawable/your_profile_picture.png" alt="Ваш профиль" style="display:none">
-            <p id="profile-name"></p>
-            <p id="profile-surname"></p>
-            <p id="profile-email"></p>
+    <div class="profile-info-container" id="profile-info-container" style="display:none;">
+        <h2>Ваш профиль</h2>
+        <div class="profile-view">
+            <img id="profile-picture" src="../../drawable/your_profile_picture.png" alt="Ваша картинка профиля"  style="display:none;"/>
+            <div class="profile-details">
+                <p><span class="profile-label">Имя:</span> <span id="profile-name"></span></p>
+                <p><span class="profile-label">Фамилия:</span> <span id="profile-surname"></span></p>
+                <p><span class="profile-label">Email:</span> <span id="profile-email"></span></p>
+            </div>
+            <button id="edit-profile-button" class="button">Редактировать профиль</button>
+            <button id="logout-button" class="button">Выйти</button>
         </div>
-        <button id="edit-profile-button">Изменить</button>
+        <div class="profile-rating">
+            <h3>Ваш рейтинг</h3>
+            <p>Изучено слов: <span id="studied-words-count">0</span></p>
+            <p>Пройдено уроков: <span id="completed-lessons-count">0</span></p>
+            <p>Набрано баллов: <span id="user-score">0</span></p>
+        </div>
     </div>
-
     <!-- Контейнер для формы редактирования профиля -->
-    <div class="profile-edit" style="display:none">
+    <div class="profile-edit-container" id="profile-edit-container" style="display:none;">
+        <h2>Редактировать профиль</h2>
         <form id="profile-form">
-            <label for="name-input">Имя:</label>
-            <input type="text" id="name-input" required>
-
-            <label for="surname-input">Фамилия:</label>
-            <input type="text" id="surname-input" required>
-
-            <label for="email-input">Email:</label>
-            <input type="email" id="email-input" required>
-
-            <label for="profile-picture-input">Аватар:</label>
-            <input type="file" accept="image/*" id="profile-picture-input">
-
-            <button>Сохранить</button>
-
+            <div class="form-group">
+                <label for="name-input">Имя:</label>
+                <input type="text" id="name-input">
+            </div>
+            <div class="form-group">
+                <label for="surname-input">Фамилия:</label>
+                <input type="text" id="surname-input">
+            </div>
+            <div class="form-group">
+                <label for="profile-picture-input">Фото профиля:</label>
+                <input type="file" id="profile-picture-input" accept="image/*">
+            </div>
             <p id="save-message"></p>
+            <button type="submit">Сохранить</button>
         </form>
     </div>
 </main>

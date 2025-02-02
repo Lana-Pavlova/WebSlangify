@@ -1,95 +1,192 @@
 /* Основные стили */
 body {
-    font-family: sans-serif;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to bottom, #f0f8e5, #c1d8b8); /* Зеленый градиент */
-    color: #333;
-    min-height: 100vh; /* минимальная высота равна высоте окна браузера */
-     display: flex;
+    display: flex;
     flex-direction: column;
+    min-height: 100vh;
 }
 .top-bar {
-  background-color: #3e8e41; /* Темно-зеленый */
+    background-color: #3e8e41;
     padding: 10px 20px;
     text-align: center;
-    color: #fff; /* Белый цвет текста */
-}
-.top-bar a {
-    color: #98FB98; /* Светло-зеленый */
-    text-decoration: none; /* убираем подчеркивание */
+    color: #fff;
 }
 
- .top-bar h1{
-    margin: 0; /*убираем отступы у заголовка*/
+.top-bar a {
+    color: #98FB98;
+    text-decoration: none;
 }
-main.content {
+
+.top-bar h1 {
+    margin: 0;
+}
+/* Главный контейнер */
+.content {
+     flex: 1;
+    display: flex;
+    flex-direction: column;
+     align-items: center;
+     justify-content: flex-start;
     padding: 20px;
-    display: flex;
-    flex-direction: column; /* элементы выстраиваются в столбец */
-     align-items: center; /* элементы по центру */
-    text-align: center;
-    flex: 1; /* растягиваем main на всю высоту */
-    position: relative;
-    padding-bottom: 100px; /* отступ снизу, чтобы не закрывал social-links */
+     max-width: 1200px;
+      margin: 0 auto;
 }
-.main-image {
-    display: flex;
-    justify-content: center;
-    margin: 20px;
-    max-width: 300px; /* задаем максимальную ширину контейнера */
-    margin: 20px auto; /* центрируем контейнер по горизонтали */
-}
-.main-image img {
-    max-width: 100%; /* изображение не будет больше контейнера */
-    height: auto;
-     border-radius: 50%; /* делаем круглым */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    display: block; /* убирает лишние пробелы под картинкой */
-    object-fit: cover; /* обрезаем лишнее */
-}
- .lesson-complete {
-   margin-top: 20px; /* отступ сверху */
+/* Слово дня и изученые */
+.main-area{
    display: flex;
-   align-items: center; /* элементы по центру по вертикали */
-   gap: 10px; /* расстояние между элементами */
+    flex-direction: column;
+     align-items: center;
+     width: 100%;
 }
 /* слово дня */
 .word-of-the-day {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
+     border: none;
+    border-radius: 12px;
+    padding: 25px 30px;
     margin: 20px auto;
-    max-width: 600px;
-    background: linear-gradient(to right, #d2e5c1, #f0f8e5); /* Зеленоватый градиент */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: left; /* Выравнивание текста по левому краю */
+    max-width: 650px;
+     background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    position: relative;
+     overflow: hidden; /* Убирает переполнение*/
 }
+
+.word-of-the-day::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom right, #e8f5e9, #f0f8e5);
+    z-index: -1;
+     transform: scaleX(0); /* Начальное состояние - не видно */
+    transition: transform 0.3s ease-in-out;
+}
+
+.word-of-the-day.active::before{
+    transform: scaleX(1)
+}
+
 
 .word-of-the-day h2 {
-    color: #436b31;
-    margin-bottom: 10px;
+    color: #2e7d32;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+.word-of-the-day p {
+    margin-bottom: 8px;
+    line-height: 1.6;
+    color: #333;
 }
 
-.word-of-the-day p {
-     margin-bottom: 5px;
-     line-height: 1.4;
+.word-of-the-day p:last-child {
+    margin-bottom: 0;
 }
 /* Стили для кнопок */
-button {
-     background-color: #4caf50; /* Зеленый */
-    color: #fff;
+.navigation {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+    gap: 10px;
+}
+.nav-button {
+    background-color: #3498db;
+    color: white;
     border: none;
-    padding: 10px 15px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
+    padding: 10px 20px;
+    border-radius: 5px;
     cursor: pointer;
-    border-radius: 4px;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    position: relative;
+    padding-left: 35px;
+    display: inline-block;
+}
+.nav-button::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: 10px;
+    width: 20px;
+    height: 20px;
+    background-size: cover;
 }
 
+.nav-button[data-icon="dictionary"]::before{
+   background-image: url('../../../drawable/dictionary.png'); /* Путь к иконке */
+}
+
+.nav-button[data-icon="lessons"]::before{
+    background-image: url('../../../drawable/lessons.png'); /* Путь к иконке */
+}
+
+.nav-button[data-icon="practice"]::before{
+    background-image: url('../../../drawable/practice.png'); /* Путь к иконке */
+}
+
+.nav-button[data-icon="profile"]::before{
+   background-image: url('../../../drawable/profile.png'); /* Путь к иконке */
+}
+
+.nav-button:hover {
+    background-color: #2980b9;
+}
+.footer {
+    padding: 10px;
+    background-color: #f0f0f0;
+    text-align: center;
+    margin-top: 20px;
+}
+/*Стили для недавно изученных слов*/
+.recently-studied {
+     margin-top: 20px;
+    text-align: left;
+    max-width: 650px;
+    margin: 20px auto;
+}
+
+.recently-studied h3 {
+   margin-bottom: 10px;
+    color: #2e7d32;
+    font-weight: 600;
+}
+.recent-words-container {
+     display: flex;
+    flex-wrap: wrap;
+     gap: 10px;
+      justify-content: flex-start;
+}
+.recent-word-card {
+    background-color: #f0f0f0;
+    padding: 15px;
+    border-radius: 8px;
+    width: calc(50% - 10px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+     transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+      flex: 0 0 calc(50% - 10px);
+    box-sizing: border-box;
+}
+.recent-word-card.active{
+  opacity: 1;
+  transform: translateY(0);
+}
+.recent-word-card h4{
+    margin-bottom: 8px;
+}
+.recent-word-card p{
+     margin-bottom: 5px;
+}
   /* Стили для полей ввода */
 input[type="text"] {
     padding: 10px;
@@ -101,13 +198,7 @@ input[type="text"] {
    #save-message {
      margin: 5px; /* отступы сверху снизу */
    }
-/* Дополнительные стили для страницы личного кабинета */
-.profile-info {
-     margin-bottom: 20px;
-}
-.profile-edit {
-  margin-bottom: 20px;
-}
+
 /* Дополнительные стили для страниц уроков */
 ul {
   list-style-type: none;
@@ -244,23 +335,6 @@ label {
     cursor: pointer;
     border-radius: 4px;
 }
-
-/* Стили для словаря */
-.dictionary-container {
-    display: flex;
-   flex-direction: column;
-    gap: 10px;
-    padding: 20px;
-    width: 90%;
-    max-width: 800px;
-    margin: 20px auto;
-}
-.dictionary-item {
-    padding: 10px;
-  border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
 .task .options-container {
     display: flex;
     flex-wrap: wrap;
@@ -285,6 +359,23 @@ label {
 .task .option-button:hover {
    background-color: #f0f0f0;
 }
+/* Стили для словаря */
+.dictionary-container {
+    display: flex;
+   flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    width: 90%;
+    max-width: 800px;
+    margin: 20px auto;
+}
+.dictionary-item {
+    padding: 10px;
+  border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+
  /* Стили для текста комикса */
 .article-example {
     border: 1px solid #ddd;
@@ -343,38 +434,219 @@ label {
 .social-links a:hover {
     text-decoration: underline; /* подчеркивание при наведении */
 }
-/*Регистрация пользователя */
-/* Стили для переключения между формами */
-.auth-toggle {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
-}
 
-.auth-toggle button {
-     background-color: #4caf50; /* Зеленый */
-    color: #fff;
-    border: none;
-     padding: 10px 15px;
-     text-align: center;
-    text-decoration: none;
-     display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-     cursor: pointer;
-    border-radius: 4px;
-}
-
-.auth-toggle button.active {
-   background-color: #3e8e41; /* Темно-зеленый */
-}
-/* Стили для деталей пользователя*/
-.profile-details {
-   display: flex;
+/* Стили для профиля */
+/* Стили для страницы профиля */
+.profile-page {
+    display: flex;
     flex-direction: column;
-     text-align: center;
-   margin-bottom: 20px;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #c2e59c, #64b3f4); /* Градиент фона */
+    padding: 20px;
 }
- .profile-details p {
-   margin-bottom: 5px;
+
+.profile-page header {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    background-color: rgba(62, 142, 65, 0.8);
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+
+.profile-container {
+    max-width: 800px; /* Увеличили max-width */
+     width: 100%;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+   margin-top: 20px;
+   display: grid; /* Включаем Grid */
+    grid-template-columns: 1fr 1fr; /* Две колонки */
+    grid-template-rows: auto auto; /* Автоматические строки */
+    gap: 20px; /* Отступы между ячейками */
+}
+.profile-container > * {
+    border-radius: 8px;
+    padding: 20px;
+     background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.profile-container h2 {
+   text-align: center;
+    margin-bottom: 20px;
+    color: #2e7d32;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.profile-section {
+  margin-bottom: 10px;
+}
+
+.profile-label {
+   font-weight: bold;
+    margin-right: 5px;
+}
+.profile-data {
+   display: flex;
+    align-items: center;
+   margin-bottom: 10px;
+}
+.profile-data img {
+   width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 15px;
+   object-fit: cover;
+}
+.profile-data p {
+    line-height: 1.6;
+}
+/* Стили для форм авторизации */
+.auth-toggle {
+   text-align: center;
+    margin-bottom: 15px;
+}
+.auth-toggle button {
+   background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin: 0 3px;
+   transition: background-color 0.3s ease;
+}
+.auth-toggle button:hover{
+    background-color: #2980b9;
+}
+#login-form, #register-form{
+   margin-bottom: 15px;
+}
+#login-form label,
+#register-form label {
+  display: block;
+    margin-bottom: 3px;
+}
+#login-form input,
+#register-form input{
+    display: block;
+    margin-bottom: 8px;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    width: 100%;
+   box-sizing: border-box;
+}
+#login-form button,
+#register-form button{
+  background-color: #3498db;
+   color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+   font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+#login-form button:hover,
+#register-form button:hover {
+   background-color: #2980b9;
+}
+.button { /* Создаём класс для кнопок, чтобы потом не писать стили несколько раз */
+    background-color: #4CAF50; /* Зеленый цвет */
+    color: white;
+    border: none;
+    padding: 12px 24px; /* Увеличенный паддинг */
+    border-radius: 6px; /* Больше скругление */
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Добавляем transform */
+}
+
+.button:hover {
+    background-color: #45a049; /* Более темный зеленый цвет при наведении */
+    transform: scale(1.05); /* Увеличение при наведении */
+}
+/* Стили для блока рейтинга */
+.profile-rating {
+    margin-top: 15px;
+   border-top: 1px solid #eee;
+    padding-top: 15px;
+     text-align: center;
+     grid-column: 1 / 3;
+}
+.profile-rating h3 {
+   margin-bottom: 10px;
+    color: #2e7d32;
+    font-weight: 600;
+   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+.profile-rating p {
+    margin-bottom: 5px;
+    line-height: 1.4;
+}
+.profile-rating p span:first-child {
+    font-weight: bold
+}
+/* Ответственность стилей */
+.auth-container, .profile-info-container, .profile-edit-container{
+    display: none;
+   opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+.auth-container.active, .profile-info-container.active, .profile-edit-container.active{
+    display: block;
+    opacity: 1;
+}
+.profile-view img {
+    max-width: 100px;
+    height: auto;
+    border-radius: 50%;
+   display: block;
+    object-fit: cover;
+    margin-bottom: 8px;
+}
+/* Стили для формы редактирования профиля */
+.profile-edit-container {
+  text-align: left;
+    padding: 15px;
+}
+.form-group{
+    margin-bottom: 8px
+}
+.profile-edit-container input[type=text],
+.profile-edit-container input[type=file]{
+    margin-bottom: 8px;
+   padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    display: block;
+   width: 100%;
+   box-sizing: border-box;
+}
+.profile-edit-container button[type=submit]{
+    margin-top: 8px;
+    padding: 8px 16px;
+    background-color: #4CAF50; /* Зеленый цвет */
+   color: white;
+   border: none;
+    border-radius: 4px;
+  cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.profile-edit-container button[type=submit]:hover{
+    background-color: #45a049; /* Более темный зеленый цвет при наведении */
+    transform: scale(1.05);
+}
+.profile-edit-container label {
+     display: block;
+    margin-bottom: 3px;
 }

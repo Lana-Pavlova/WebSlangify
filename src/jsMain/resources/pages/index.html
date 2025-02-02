@@ -11,27 +11,30 @@
     <h1>Slangify</h1>
 </header>
 <main class="content">
-    <div id="word-of-the-day-container" class="word-of-the-day">
-        <div id="loading-indicator" style="display: none;">Loading...</div>
-        <div id="error-message" style="display: none;"></div>
-        <div id="word-data" style="display: none;">
+    <div class="navigation">
+        <a href="dictionary.html" class="nav-button" data-icon="dictionary">Словарь</a>
+        <a href="lessons.html" class="nav-button" data-icon="lessons">Уроки</a>
+        <a href="practice.html" class="nav-button" data-icon="practice">Практика</a>
+        <a href="profile.html" class="nav-button" data-icon="profile">Личный кабинет</a>
+    </div>
+    <div class="main-area">
+        <div class="word-of-the-day" id="word-of-the-day-container">
+            <div id="loading-indicator" style="display: none;">Loading...</div>
+            <div id="error-message" style="display: none;"></div>
             <h2 id="word-title"></h2>
             <p id="word-definition"></p>
             <p id="word-translation"></p>
             <p id="word-examples"></p>
         </div>
-    </div>
-    <div class="main-menu">
-        <button><a href="dictionary.html">Словарь</a></button>
-        <button><a href="lessons.html">Уроки</a></button>
-        <button><a href="practice.html">Практика</a></button>
-        <button><a href="profile.html">Личный кабинет</a></button>
-    </div>
-    <div class="main-image">
-        <img src="../../../drawable/goose.jpg" alt="Главное изображение">
+        <div class="recently-studied">
+            <h3>Недавно изученные слова</h3>
+            <div id="recent-words-container" class="recent-words-container">
+                <!--Сюда будут добавляться слова-->
+            </div>
+        </div>
     </div>
 </main>
-<script src="../js/script.js"></script>
+<script type="module" src="../js/script.js"></script>
 <footer class="social-links">
     <a href="https://vk.com/id_ggg_lana" target="_blank">ВКонтакте</a>
     <a href="https://t.me/LanaPavlova" target="_blank">Telegram</a>
