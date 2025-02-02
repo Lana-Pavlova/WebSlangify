@@ -1,0 +1,380 @@
+/* Основные стили */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #f0f8e5, #c1d8b8); /* Зеленый градиент */
+    color: #333;
+    min-height: 100vh; /* минимальная высота равна высоте окна браузера */
+     display: flex;
+    flex-direction: column;
+}
+.top-bar {
+  background-color: #3e8e41; /* Темно-зеленый */
+    padding: 10px 20px;
+    text-align: center;
+    color: #fff; /* Белый цвет текста */
+}
+.top-bar a {
+    color: #98FB98; /* Светло-зеленый */
+    text-decoration: none; /* убираем подчеркивание */
+}
+
+ .top-bar h1{
+    margin: 0; /*убираем отступы у заголовка*/
+}
+main.content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column; /* элементы выстраиваются в столбец */
+     align-items: center; /* элементы по центру */
+    text-align: center;
+    flex: 1; /* растягиваем main на всю высоту */
+    position: relative;
+    padding-bottom: 100px; /* отступ снизу, чтобы не закрывал social-links */
+}
+.main-image {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    max-width: 300px; /* задаем максимальную ширину контейнера */
+    margin: 20px auto; /* центрируем контейнер по горизонтали */
+}
+.main-image img {
+    max-width: 100%; /* изображение не будет больше контейнера */
+    height: auto;
+     border-radius: 50%; /* делаем круглым */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    display: block; /* убирает лишние пробелы под картинкой */
+    object-fit: cover; /* обрезаем лишнее */
+}
+ .lesson-complete {
+   margin-top: 20px; /* отступ сверху */
+   display: flex;
+   align-items: center; /* элементы по центру по вертикали */
+   gap: 10px; /* расстояние между элементами */
+}
+/* слово дня */
+.word-of-the-day {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+    background: linear-gradient(to right, #d2e5c1, #f0f8e5); /* Зеленоватый градиент */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: left; /* Выравнивание текста по левому краю */
+}
+
+.word-of-the-day h2 {
+    color: #436b31;
+    margin-bottom: 10px;
+}
+
+.word-of-the-day p {
+     margin-bottom: 5px;
+     line-height: 1.4;
+}
+/* Стили для кнопок */
+button {
+     background-color: #4caf50; /* Зеленый */
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+  /* Стили для полей ввода */
+input[type="text"] {
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+   /* Стили для сообщений */
+   #save-message {
+     margin: 5px; /* отступы сверху снизу */
+   }
+/* Дополнительные стили для страницы личного кабинета */
+.profile-info {
+     margin-bottom: 20px;
+}
+.profile-edit {
+  margin-bottom: 20px;
+}
+/* Дополнительные стили для страниц уроков */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+  /* Дополнительные стили для страниц практики */
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.search-container input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-right: 5px;
+}
+
+ /*Стили для чекбоксов*/
+ input[type="checkbox"] {
+     margin: 0; /* убираем отступы */
+      transform: scale(1.2); /* увеличиваем размер */
+ }
+label {
+     margin: 0;
+ }
+
+/* Стили для таблиц */
+.post-table {
+    width: 90%;
+    max-width: 800px;
+    border-collapse: collapse;
+    margin: 20px auto;
+    border-radius: 8px;
+     overflow: hidden;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.post-table-header {
+     background-color: #ddd;
+    padding: 12px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.post-table-cell {
+    padding: 12px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+/* Удаляем все границы*/
+.post-table th, .post-table td {
+   border: none;
+}
+
+.post-table tbody tr:nth-child(odd) {
+  background-color: #f9f9f9; /* Фон нечётных строк */
+}
+
+/* Стили для контента урока */
+.lesson-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    padding: 20px;
+    gap: 20px;
+    width: 90%;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.lesson-image-container {
+   display: flex;
+    justify-content: center;
+   margin-bottom: 20px;
+}
+
+.lesson-image {
+   max-width: 500px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.lesson-text {
+    flex: 1;
+    margin-bottom: 20px;
+    text-align: left;
+}
+.lesson-text p {
+    text-align: left;
+}
+
+.lesson-text b {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    display: block;
+    text-align: left;
+}
+/* Стили для заданий */
+.task-content {
+   display: flex;
+   flex-direction: column;
+   gap: 10px; /* Отступы между элементами */
+   padding: 20px;
+   width: 90%;
+   max-width: 800px;
+   margin: 20px auto;
+  text-align: left;
+}
+.task-content textarea {
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    min-height: 100px; /* Минимальная высота */
+}
+.task-content select {
+     padding: 10px;
+     border: 1px solid #ddd;
+     border-radius: 4px;
+}
+.task-content button {
+  background-color: #4caf50; /* Зеленый */
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+/* Стили для словаря */
+.dictionary-container {
+    display: flex;
+   flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    width: 90%;
+    max-width: 800px;
+    margin: 20px auto;
+}
+.dictionary-item {
+    padding: 10px;
+  border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.task .options-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.task .option-button {
+   background-color: #fff;
+    color: #333;
+    border: 1px solid #ddd;
+    padding: 8px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.task .option-button:hover {
+   background-color: #f0f0f0;
+}
+ /* Стили для текста комикса */
+.article-example {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    background: #f0f8e5; /* Светло-зеленый */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    line-height: 1.5;
+    font-size: 16px;
+}
+
+.article-example strong {
+   font-weight: bold;
+    color: #436b31;
+}
+
+.article-example span {
+  font-size: 1.1em;
+}
+
+/* Стили для пояснений к словам */
+.explanation-text {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    background: #f8fdf5; /* Светло-зеленый */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    line-height: 1.5;
+    font-size: 16px;
+}
+
+.explanation-text strong {
+   font-weight: bold;
+    color: #436b31;
+}
+/* Стили для ссылок на соцсети */
+.social-links {
+   text-align: center;
+   padding: 20px 0;
+    margin-top: auto;
+    background-color: #3e8e41; /* Темно-зеленый */
+}
+
+.social-links a {
+    color: #fff; /* белый цвет ссылок */
+    margin: 0 10px; /* отступы */
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    text-decoration: underline; /* подчеркивание при наведении */
+}
+/*Регистрация пользователя */
+/* Стили для переключения между формами */
+.auth-toggle {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.auth-toggle button {
+     background-color: #4caf50; /* Зеленый */
+    color: #fff;
+    border: none;
+     padding: 10px 15px;
+     text-align: center;
+    text-decoration: none;
+     display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+     cursor: pointer;
+    border-radius: 4px;
+}
+
+.auth-toggle button.active {
+   background-color: #3e8e41; /* Темно-зеленый */
+}
+/* Стили для деталей пользователя*/
+.profile-details {
+   display: flex;
+    flex-direction: column;
+     text-align: center;
+   margin-bottom: 20px;
+}
+ .profile-details p {
+   margin-bottom: 5px;
+}
