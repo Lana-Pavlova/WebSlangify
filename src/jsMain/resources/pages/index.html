@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Главная</title>
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="icon" href="../../../drawable/goose.jpg" type="image/png">
 </head>
 <body>
 <header class="top-bar">
     <a href="../pages/index.html"><h1>Главная</h1></a>
     <div class="top-bar-buttons">
         <a href="../pages/lessons.html" class="nav-button" data-icon="lessons">Уроки</a>
-        <a href="../pages/tasks.html" class="nav-button" data-icon="practice">Задания</a>
+        <a href="../pages/practice.html" class="nav-button" data-icon="practice">Задания</a>
         <a href="../pages/dictionary.html" class="nav-button" data-icon="dictionary">Словарь</a>
     </div>
     <button id="profile-toggle" class="profile-button">☰</button>
@@ -43,21 +44,12 @@
                 <button id="register-button">Регистрация</button>
             </div>
             <!-- Форма входа -->
-            <div id="login-form" >
-                <form id="login-auth-form">
-                    <label for="login-email-input">Email:</label>
-                    <input type="email" id="login-email-input" required>
-                    <button>Войти</button>
-                    <p id="login-auth-message"></p>
-                </form>
-            </div>
-            <!-- Форма регистрации -->
-            <div id="register-form" >
-                <form id="register-auth-form">
-                    <label for="register-email-input">Email:</label>
-                    <input type="email" id="register-email-input" required>
-                    <button>Зарегистрироваться</button>
-                    <p id="register-auth-message"></p>
+            <div id="auth-form-container" >
+                <form id="auth-form">
+                    <label for="auth-email-input">Email:</label>
+                    <input type="email" id="auth-email-input" required>
+                    <button id="auth-submit-button">Войти</button>
+                    <p id="auth-message"></p>
                 </form>
             </div>
         </div>
@@ -79,6 +71,9 @@
                 <p>Изучено слов: <span id="studied-words-count">0</span></p>
                 <p>Пройдено уроков: <span id="completed-lessons-count">0</span></p>
                 <p>Набрано баллов: <span id="user-score">0</span></p>
+                <h3>Топ пользователей</h3>
+                <ol id="user-rating-container">
+                </ol>
             </div>
         </div>
         <!-- Контейнер для формы редактирования профиля -->
