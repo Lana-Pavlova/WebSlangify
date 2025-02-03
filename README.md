@@ -1,3 +1,3 @@
-# Building Web Applications with React and Kotlin JS Hands-On Lab
+# Building Web Applications with React and Kotlin JS
 
 
